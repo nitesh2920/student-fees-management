@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import API from "../lib/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const PayFees = () => {
 
   const handlePay = () => {
     API.put("/students/profile/pay-fees", formData)
-      .then((res) => {
+      .then(() => {
         alert("Fees marked as paid successfully");
         setFormData({ name: "", email: "", course: "" });
         navigate("/profile"); 

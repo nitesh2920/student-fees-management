@@ -2,9 +2,16 @@ import { useEffect, useState } from 'react';
 import API from '../lib/axios';
 import PaymentModal from '../components/PaymentModal';
 
+type Student = {
+  _id: string;
+  name: string;
+  email: string;
+  feesPaid: boolean;
+};
+
 const AllStudents = () => {
-  const [students, setStudents] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [students, setStudents] = useState<Student[]>([]);
+  const [currentUser, setCurrentUser] = useState<Student | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -52,7 +59,7 @@ const AllStudents = () => {
             </tr>
           </thead>
           <tbody>
-            {students.map((student: any, idx: number) => (
+            {students.map((student, idx: number) => (
               <tr
                 key={student._id}
                 className={`transition-colors duration-300 ${
