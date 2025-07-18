@@ -95,7 +95,7 @@ const AllStudents = () => {
         </table>
       </div>
 
-//modal
+
       {currentUser && (
         <PaymentModal
           isOpen={isModalOpen}
