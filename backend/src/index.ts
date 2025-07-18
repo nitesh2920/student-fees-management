@@ -20,9 +20,9 @@ mongoose.connect(process.env.MONGO_URI as string)
 .then(()=>{
     console.log("DB connected ");
 
-})
-.catch((err)=>{
+}).catch((err)=>{
     console.error("DB connection error: ", err);
+    console.log("Please check your MongoDB connection string in .env file");
 })
 
 app.use('/api/auth', authRoutes);
